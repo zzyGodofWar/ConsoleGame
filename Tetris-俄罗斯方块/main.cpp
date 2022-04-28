@@ -309,7 +309,7 @@ int main() {
 	CreateDropBlock();
 	while (true) {
 		system("cls");
-		printf("·ÖÊý£º%d\n", GAME_SCORE);
+		printf("Â·Ã–ÃŠÃ½Â£Âº%d\n", GAME_SCORE);
 		if (timeSamp % 3 == 0) {
 			KeyInput();
 		}
