@@ -1,12 +1,12 @@
 
 
-#include <stdio.h>//Ê¹ÓÃ printf ´òÓ¡º¯Êı
-#include <stdlib.h>//Ê¹ÓÃ rand È¡Ëæ»úÊıº¯Êı
-#include <Windows.h>//Ê¹ÓÃ Sleep ÑÓ³Ùº¯Êı ÒÔ¼° system ÃüÁî
-#include <conio.h>//Ê¹ÓÃ getch »ñÈ¡°´¼üº¯Êı
+#include <stdio.h>//ä½¿ç”¨ printf æ‰“å°å‡½æ•°
+#include <stdlib.h>//ä½¿ç”¨ rand å–éšæœºæ•°å‡½æ•°
+#include <Windows.h>//ä½¿ç”¨ Sleep å»¶è¿Ÿå‡½æ•° ä»¥åŠ system å‘½ä»¤
+#include <conio.h>//ä½¿ç”¨ getch è·å–æŒ‰é”®å‡½æ•°
 #include <time.h>
 
-//¶¨ÒåÓÎÏ·µÄ¿íºÍ¸ß
+//å®šä¹‰æ¸¸æˆçš„å®½å’Œé«˜
 #define MAP_WIDTH 38
 #define MAP_HEIGHT 24
 
@@ -15,19 +15,19 @@ struct snakeblock {
 	int y;
 };
 
-/* ¶¨ÒåÓÎÏ·¶şÎ¬Êı×é£¨½«µØÍ¼=1 ÉßÍ·=2 ÉßÉí=3 ºÍ Ê³Îï=4 ±£´æÔÚÊı×éÖĞ£©
-¶¨ÒåÓÎÏ·ËÙ¶ÈµÈÈ«¾Ö±äÁ¿ */
+/* å®šä¹‰æ¸¸æˆäºŒç»´æ•°ç»„ï¼ˆå°†åœ°å›¾=1 è›‡å¤´=2 è›‡èº«=3 å’Œ é£Ÿç‰©=4 ä¿å­˜åœ¨æ•°ç»„ä¸­ï¼‰
+å®šä¹‰æ¸¸æˆé€Ÿåº¦ç­‰å…¨å±€å˜é‡ */
 int map[MAP_WIDTH][MAP_HEIGHT];
 struct snakeblock p_snake[(MAP_WIDTH-2)*(MAP_HEIGHT-2)];
 int GAME_SPEED = 80;
-int Snake_direction = 2;//ÉßÇ°½ø·½Ïò ÉÏ 1 ÓÒ 2 ÏÂ 3 ×ó 4
+int Snake_direction = 2;//è›‡å‰è¿›æ–¹å‘ ä¸Š 1 å³ 2 ä¸‹ 3 å·¦ 4
 int score = 1;
 
-//ÉèÖÃµÀ¾ß³öÏÖ¸ÅÂÊ
+//è®¾ç½®é“å…·å‡ºç°æ¦‚ç‡
 int MisteryProbability = 15;
 
-/*ÉùÃ÷×Ô¼ºµÄº¯Êı
-³õÊ¼»¯µØÍ¼ »­µØÍ¼ ³õÊ¼»¯ÉßÍ·*/
+/*å£°æ˜è‡ªå·±çš„å‡½æ•°
+åˆå§‹åŒ–åœ°å›¾ ç”»åœ°å›¾ åˆå§‹åŒ–è›‡å¤´*/
 void initializationMap();
 void drawMap();
 void initializationSnake();
@@ -54,8 +54,8 @@ int main()
 	initializationSnake();
 
 	system("cls");
-	printf("\t»¶Ó­À´µ½È¤Î¶Ì°³ÔÉß\n");
-	printf("\t°´ÏÂÈÎÒâ¼ü¿ªÊ¼ÓÎÏ·\n");
+	printf("\tæ¬¢è¿æ¥åˆ°è¶£å‘³è´ªåƒè›‡\n");
+	printf("\tæŒ‰ä¸‹ä»»æ„é”®å¼€å§‹æ¸¸æˆ\n");
 	while (!key) {
 		if (_kbhit()) {
 			key = _getch();
@@ -114,23 +114,23 @@ int main()
 		drawSnaketoMap();
 	}
 	system("cls");
-	printf("\n\tGAME OVER\n\tÓÎÏ·½áÊø\n");
+	printf("\n\tGAME OVER\n\tæ¸¸æˆç»“æŸ\n");
 	switch (death)
 	{
 	case 1:
-		printf("\n\tÄÔ´ü×²Ç½£¬Í·ÆÆÉßÍö\n");
+		printf("\n\tè„‘è¢‹æ’å¢™ï¼Œå¤´ç ´è›‡äº¡\n");
 		break;
 	case 2:
-		printf("\n\tÉßÈâÕæºÃ³Ô£¬Ê§Ñª¹ı¶à¶øÍö\n");
+		printf("\n\tè›‡è‚‰çœŸå¥½åƒï¼Œå¤±è¡€è¿‡å¤šè€Œäº¡\n");
 		break;
 	case 3:
-		printf("\n\tÄãÒÑÍ¨¹Ø£¡\n");
+		printf("\n\tä½ å·²é€šå…³ï¼\n");
 		break;
 	}
 	
-	printf("\tµÃ·Ö£º%d\n",score);
+	printf("\tå¾—åˆ†ï¼š%d\n",score);
 
-	printf("\n\t°´»Ø³µ¼üÖØĞÂ¿ªÊ¼\n", score);
+	printf("\n\tæŒ‰å›è½¦é”®é‡æ–°å¼€å§‹\n", score);
 	getchar();
 
 	} while (true);
@@ -167,19 +167,19 @@ void drawMap() {
 			switch (map[x][y])
 			{
 				case 1:
-					printf("¡õ");
+					printf("â–¡");
 					break;
 				case 2:
-					printf("¡ò");
+					printf("â—");
 					break;
 				case 3:
-					printf("¡ğ");
+					printf("â—‹");
 					break;
 				case 4:
-					printf("¡ñ");
+					printf("â—");
 					break;
 				case 5:
-					printf("£¿");
+					printf("ï¼Ÿ");
 					break;
 				default:
 					printf("  ");
@@ -339,5 +339,5 @@ int isMapHavePickUp() {
 }
 
 void printfscore() {
-	printf("µ±Ç°·ÖÊı:%d", score);
+	printf("å½“å‰åˆ†æ•°:%d", score);
 }
