@@ -99,7 +99,7 @@ int main()
 		}
 
 	}
-	printf("\n\tÓÎÏ·½áÊø\n");
+	printf("\n\tÃ“ÃÃÂ·Â½Ã¡ÃŠÃ¸\n");
 	getchar();
 	getchar();
 	
